@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[hexo + github搭建博客]]></title>
+      <url>%2F2017%2F03%2F25%2Fhexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
+      <content type="text"><![CDATA[准备工具Node.jsGit 开始接下来只需要使用 npm 即可完成 Hexo 的安装。 1$ npm install -g hexo-cli 搭建博客安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件 1$ hexo init &lt;folder&gt; 新建完成后，指定文件夹的目录如下：12345678.├── _config.yml├── package.json├── scaffolds├── source| ├── _drafts| └── _posts└── themes 部署配置为了能直接打包文件到github，我们需要安装 hexo-deployer-git。 1$ npm install hexo-deployer-git --save 打开要部署到 git上 ，还需要修改_config.ymltype:git ,repo 为 git 仓库地址,如:123deploy:- type: git repo: git@github.com:zq741235/zq741235.github.io.git 最后终于配置完了，跑如下命令，能直接生成博客内容到git中123456789$ hexo generate --deploy 或 $ hexo deploy --generate// 也可以简写为$ hexo g -d或$ hexo d -g 然后就可以通过此域名访问博客了 https://zq741235.github.io]]></content>
+    </entry>
+
+    
+  
+  
+</search>
