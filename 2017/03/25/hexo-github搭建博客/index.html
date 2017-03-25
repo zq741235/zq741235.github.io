@@ -103,7 +103,7 @@
 搭建博客安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件
 1$ hexo init &amp;lt;folder&amp;gt;
 新建完成后，指定文件夹的目录如下：12345678.├── _config.yml├── package.">
-<meta property="og:updated_time" content="2017-03-25T13:13:14.000Z">
+<meta property="og:updated_time" content="2017-03-25T13:19:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo + github搭建博客">
 <meta name="twitter:description" content="准备工具Node.jsGit
@@ -391,7 +391,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>打开<br>要部署到    git上 ，还需要修改<strong>_config.yml</strong><br><code>type:git</code> ,repo 为 git 仓库地址,如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">- type: git</div><div class="line">  repo: git@github.com:zq741235/zq741235.github.io.git</div></pre></td></tr></table></figure></p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>终于配置完了，跑如下命令，能直接生成博客内容到git中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy </div><div class="line">或 </div><div class="line">$ hexo deploy --generate</div><div class="line"></div><div class="line">// 也可以简写为</div><div class="line"></div><div class="line">$ hexo g -d</div><div class="line">或</div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
-<p>然后就可以通过此域名访问博客了-</p>
+<p>然后就可以通过此域名访问博客了</p>
 <p><a href="https://zq741235.github.io" target="_blank" rel="external">https://zq741235.github.io</a></p>
 
       
