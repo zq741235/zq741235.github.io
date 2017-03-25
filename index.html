@@ -286,7 +286,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qing Zhou">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -369,8 +369,7 @@
       
         
           
-            <p>[TOC]</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>vue.js优势是（视图-模型）双向绑定，简化了dom的操作（不用重写大量的html标签），提高dom的复用率（以最少代码实现更多的功能），倾向于数据读写，虽然看上去使用比较繁琐，但是利于后期的维护。 </p>
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>vue.js优势是（视图-模型）双向绑定，简化了dom的操作（不用重写大量的html标签），提高dom的复用率（以最少代码实现更多的功能），倾向于数据读写，虽然看上去使用比较繁琐，但是利于后期的维护。 </p>
 <h2 id="挂载点的选择el"><a href="#挂载点的选择el" class="headerlink" title="挂载点的选择el"></a>挂载点的选择el</h2><p>只在由 new 创建的实例中遵守。<br>提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。<br>在实例挂载之后， 元素可以用 vm.$el 访问。</p>
 <blockquote>
 <p>提供的元素只能作为挂载点。不同于 Vue 1.x，所有的挂载元素会被 Vue 生成的 DOM 替换。因此不推荐挂载root实例到 <code>&lt;html&gt;</code> 或者 <code>&lt;body&gt;</code> 上。</p>
@@ -437,8 +436,7 @@
 <p>比如 <a href="./vue使用总结.html#vue-router">路由</a></p>
 <p>当打包构建应用时，Javascript包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。</p>
 <p>这种异步加载组件的写法 会生成类似 <code>11.11.js</code> 这样的的文件。在需要渲染的时候再加载</p>
-<p>##扩展 </p>
-<h3 id="路由-vue-router"><a href="#路由-vue-router" class="headerlink" title="路由 vue-router"></a>路由 vue-router</h3><h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)</span></div><div class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span> </div><div class="line">Vue.use(VueRouter)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//  定义（路由）组件。</span></div><div class="line"><span class="comment">// 可以从其他文件 import 进来</span></div><div class="line"><span class="keyword">const</span> componentA = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'./componentA/index'</span>], resolve)</div><div class="line"></div><div class="line"><span class="keyword">const</span> componentB = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'./componentB/index'</span>], resolve)</div><div class="line"> </div><div class="line"><span class="comment">//  创建 router 实例  </span></div><div class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</div><div class="line">  <span class="attr">mode</span>: <span class="string">'hash'</span>, </div><div class="line">    <span class="attr">base</span>: __dirname,</div><div class="line">    <span class="attr">routes</span>: [&#123;</div><div class="line">        <span class="attr">path</span>: <span class="string">'/'</span>, </div><div class="line">        <span class="attr">component</span>: componentA,</div><div class="line">        <span class="attr">name</span>: <span class="string">'apply'</span>,</div><div class="line">        <span class="attr">meta</span>: &#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'aaa'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;) </div><div class="line"><span class="comment">// 创建和挂载根实例。</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">    router, </div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="路由-vue-router"><a href="#路由-vue-router" class="headerlink" title="路由 vue-router"></a>路由 vue-router</h3><h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)</span></div><div class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span> </div><div class="line">Vue.use(VueRouter)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//  定义（路由）组件。</span></div><div class="line"><span class="comment">// 可以从其他文件 import 进来</span></div><div class="line"><span class="keyword">const</span> componentA = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'./componentA/index'</span>], resolve)</div><div class="line"></div><div class="line"><span class="keyword">const</span> componentB = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'./componentB/index'</span>], resolve)</div><div class="line"> </div><div class="line"><span class="comment">//  创建 router 实例  </span></div><div class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</div><div class="line">  <span class="attr">mode</span>: <span class="string">'hash'</span>, </div><div class="line">    <span class="attr">base</span>: __dirname,</div><div class="line">    <span class="attr">routes</span>: [&#123;</div><div class="line">        <span class="attr">path</span>: <span class="string">'/'</span>, </div><div class="line">        <span class="attr">component</span>: componentA,</div><div class="line">        <span class="attr">name</span>: <span class="string">'apply'</span>,</div><div class="line">        <span class="attr">meta</span>: &#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'aaa'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;) </div><div class="line"><span class="comment">// 创建和挂载根实例。</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">    router, </div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h4 id="导航钩子"><a href="#导航钩子" class="headerlink" title="导航钩子"></a>导航钩子</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// to 和 from 都是 路由信息对象</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><a href="https://router.vuejs.org/zh-cn/essentials/getting-started.html" target="_blank" rel="external">-&gt;更多</a></p>
 <h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><p>每一个 Vuex 应用的核心就是 store（仓库）。”store” 基本上就是一个容器，它包含着你的应用中大部分的<strong>状态(state)</strong>。Vuex 和单纯的全局对象有以下两点不同：</p>
@@ -620,7 +618,7 @@ Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qing Zhou">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -782,7 +780,7 @@ Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460"
                alt="Qing Zhou" />
           <p class="site-author-name" itemprop="name">Qing Zhou</p>
            
@@ -809,6 +807,17 @@ Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zq741235" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
