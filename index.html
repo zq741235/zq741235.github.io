@@ -461,115 +461,6 @@ computed:{
 <p><a href="https://vuex.vuejs.org/zh-cn/state.html" target="_blank" rel="external">-&gt; 更多</a></p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>1.顶层的元素不能是组件<br>2.组件模板应只包含一个根元素 </p>
 <p>computed 为对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">computed: &#123;</div><div class="line">  songWithExtraStuff () &#123;</div><div class="line">    <span class="keyword">const</span> song = <span class="keyword">this</span>.song</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      ...song,</div><div class="line">      <span class="attr">duration</span>: max(song.tracks.map(<span class="function"><span class="params">track</span> =&gt;</span> track.duration))</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<!-- 
-### 选项 / 生命周期钩子
-
-
-所有的生命周期钩子自动绑定 this 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命周期方法 (例如 created: () => this.fetchTodos())。这是因为箭头函数绑定了父上下文，因此 this 与你期待的 Vue 实例不同， this.fetchTodos 的行为未定义。
-
-
-
-#### beforeCreate
-
-类型： Function
-
-详细：
-
-在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用
-
-#### created
-
-类型： Function
-
-详细：
-
-实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。
-
-#### beforeMount
-
-类型： Function
-
-详细：
-
-在挂载开始之前被调用：相关的 render 函数首次被调用。
-
-该钩子在服务器端渲染期间不被调用。
-
-
-#### mounted
-
-类型： Function
-
-详细：
-
-el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
-
-该钩子在服务器端渲染期间不被调用。
-
-#### beforeUpdate
-
-类型： Function
-
-详细：
-
-数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。
-
-你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
-
-该钩子在服务器端渲染期间不被调用。
-
-#### updated
-
-类型： Function
-
-详细：
-
-由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
-
-当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。
-
-该钩子在服务器端渲染期间不被调用。
-
-#### activated
-
-类型： Function
-
-详细：
-
-keep-alive 组件激活时调用。
-
-该钩子在服务器端渲染期间不被调用。
-
-#### deactivated
-
-类型： Function
-
-详细：
-
-keep-alive 组件停用时调用。
-
-该钩子在服务器端渲染期间不被调用。
-
-#### beforeDestroy
-
-类型： Function
-
-详细：
-
-实例销毁之前调用。在这一步，实例仍然完全可用。
-
-该钩子在服务器端渲染期间不被调用。
-
-
-#### destroyed
-
-类型： Function
-
-详细：
-
-Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
-
-该钩子在服务器端渲染期间不被调用。 -->
 
           
         
@@ -800,6 +691,15 @@ Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
