@@ -87,34 +87,23 @@
 
 
 
-<meta name="description" content="介绍RAP是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。除了日常用到的新建接口，数据模拟，这里主要介绍一些小技巧。
-技能升级显示与隐藏在编辑Mock规则时，请点击右上角的 Mock按钮来显示Mock信息 ，为了接口文档的阅读体验，默认Mock信息会被隐藏。
-
-
-书写规则在备注里，Mock标签和普通的备注需要">
+<meta name="description" content="介绍RAP是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。除了日常用到的新建接口，数据模拟，这里主要介绍一些小技巧。 技能升级显示与隐藏在编辑Mock规则时，请点击右上角的 Mock按钮来显示Mock信息 ，为了接口文档的阅读体验，默认Mock信息会被隐藏。   书写规则在备注里，Mock标签和普通的备注需要">
+<meta name="keywords" content="rap,mockjs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RAP的使用总结">
 <meta property="og:url" content="http://yoursite.com/2017/04/03/rap/index.html">
 <meta property="og:site_name" content="水叨叨">
-<meta property="og:description" content="介绍RAP是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。除了日常用到的新建接口，数据模拟，这里主要介绍一些小技巧。
-技能升级显示与隐藏在编辑Mock规则时，请点击右上角的 Mock按钮来显示Mock信息 ，为了接口文档的阅读体验，默认Mock信息会被隐藏。
-
-
-书写规则在备注里，Mock标签和普通的备注需要">
+<meta property="og:description" content="介绍RAP是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。除了日常用到的新建接口，数据模拟，这里主要介绍一些小技巧。 技能升级显示与隐藏在编辑Mock规则时，请点击右上角的 Mock按钮来显示Mock信息 ，为了接口文档的阅读体验，默认Mock信息会被隐藏。   书写规则在备注里，Mock标签和普通的备注需要">
 <meta property="og:image" content="http://yoursite.com/2017/04/03/rap/mocktrue.jpeg">
 <meta property="og:image" content="http://yoursite.com/2017/04/03/rap/mockfalse.jpeg">
 <meta property="og:image" content="http://yoursite.com/2017/04/03/rap/result1.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/03/rap/result2.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/03/rap/配置1.png">
 <meta property="og:image" content="http://yoursite.com/2017/04/03/rap/配置2.png">
-<meta property="og:updated_time" content="2017-04-03T09:17:27.000Z">
+<meta property="og:updated_time" content="2017-04-06T02:22:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RAP的使用总结">
-<meta name="twitter:description" content="介绍RAP是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。除了日常用到的新建接口，数据模拟，这里主要介绍一些小技巧。
-技能升级显示与隐藏在编辑Mock规则时，请点击右上角的 Mock按钮来显示Mock信息 ，为了接口文档的阅读体验，默认Mock信息会被隐藏。
-
-
-书写规则在备注里，Mock标签和普通的备注需要">
+<meta name="twitter:description" content="介绍RAP是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。除了日常用到的新建接口，数据模拟，这里主要介绍一些小技巧。 技能升级显示与隐藏在编辑Mock规则时，请点击右上角的 Mock按钮来显示Mock信息 ，为了接口文档的阅读体验，默认Mock信息会被隐藏。   书写规则在备注里，Mock标签和普通的备注需要">
 <meta name="twitter:image" content="http://yoursite.com/2017/04/03/rap/mocktrue.jpeg">
 
 
@@ -455,6 +444,7 @@
 <img src="/2017/04/03/rap/result1.png" alt="alias=test" title="alias=test">
 <img src="/2017/04/03/rap/result2.png" alt="alias=QDH_APPLY" title="alias=QDH_APPLY">
 <h2 id="不同模块之间的调用"><a href="#不同模块之间的调用" class="headerlink" title="不同模块之间的调用"></a>不同模块之间的调用</h2><p>比如我们开始的模块id是4，想要调用id是37的模块里面的接口，这个时候只需要在4的项目中点击配置，把项目路由里新增37，各个模块之间使用逗号隔开。<br><img src="/2017/04/03/rap/配置1.png" alt="点击配置按钮" title="点击配置按钮"><br><img src="/2017/04/03/rap/配置2.png" alt="修改项目路由" title="修改项目路由"></p>
+<h2 id="获取所有接口路径的列表"><a href="#获取所有接口路径的列表" class="headerlink" title="获取所有接口路径的列表"></a>获取所有接口路径的列表</h2><p>如：<br><a href="http://192.168.4.12//mock/getWhiteList.do?projectId=4" target="_blank" rel="external">http://192.168.4.12//mock/getWhiteList.do?projectId=4</a></p>
 
       
     </div>
@@ -508,6 +498,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/13/vuesnippet/" rel="prev" title="vuesnippet">
+                vuesnippet <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -579,7 +573,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -601,7 +595,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -647,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技能升级"><span class="nav-number">2.</span> <span class="nav-text">技能升级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示与隐藏"><span class="nav-number">2.1.</span> <span class="nav-text">显示与隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#书写规则"><span class="nav-number">2.2.</span> <span class="nav-text">书写规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义"><span class="nav-number">2.3.</span> <span class="nav-text">转义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据请求参数来动态生成MockJS模板"><span class="nav-number">2.4.</span> <span class="nav-text">根据请求参数来动态生成MockJS模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mock规则"><span class="nav-number">2.5.</span> <span class="nav-text">mock规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据实际传参值决定所匹配接口"><span class="nav-number">3.</span> <span class="nav-text">根据实际传参值决定所匹配接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同模块之间的调用"><span class="nav-number">4.</span> <span class="nav-text">不同模块之间的调用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技能升级"><span class="nav-number">2.</span> <span class="nav-text">技能升级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示与隐藏"><span class="nav-number">2.1.</span> <span class="nav-text">显示与隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#书写规则"><span class="nav-number">2.2.</span> <span class="nav-text">书写规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义"><span class="nav-number">2.3.</span> <span class="nav-text">转义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据请求参数来动态生成MockJS模板"><span class="nav-number">2.4.</span> <span class="nav-text">根据请求参数来动态生成MockJS模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mock规则"><span class="nav-number">2.5.</span> <span class="nav-text">mock规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据实际传参值决定所匹配接口"><span class="nav-number">3.</span> <span class="nav-text">根据实际传参值决定所匹配接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同模块之间的调用"><span class="nav-number">4.</span> <span class="nav-text">不同模块之间的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取所有接口路径的列表"><span class="nav-number">5.</span> <span class="nav-text">获取所有接口路径的列表</span></a></li></ol></div>
             
 
           </div>
