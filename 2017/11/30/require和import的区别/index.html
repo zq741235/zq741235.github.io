@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="哈哈">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="介绍JavaScript没有内置的模块支持，但社区已经创造了令人印象深刻的解决方案。 CommonJS模块这个标准的主要实现在Node.js中（Node.js模块有一些超越CommonJS的特性）。特点：  紧凑的语法 专为同步加载而设计   异步模块定义（AMD）这个标准最流行的实现是RequireJS。特点：  稍微复杂一点的语法，使AMD不用eval（）（或编译步骤）就可以工作。 专为异步加">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript模块系统(require 和 import的区别)">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/require和import的区别/index.html">
 <meta property="og:site_name" content="水叨叨">
-<meta property="og:description" content="哈哈">
-<meta property="og:updated_time" content="2017-03-27T05:53:19.000Z">
+<meta property="og:description" content="介绍JavaScript没有内置的模块支持，但社区已经创造了令人印象深刻的解决方案。 CommonJS模块这个标准的主要实现在Node.js中（Node.js模块有一些超越CommonJS的特性）。特点：  紧凑的语法 专为同步加载而设计   异步模块定义（AMD）这个标准最流行的实现是RequireJS。特点：  稍微复杂一点的语法，使AMD不用eval（）（或编译步骤）就可以工作。 专为异步加">
+<meta property="og:updated_time" content="2017-12-06T02:38:05.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="哈哈">
+<meta name="twitter:title" content="JavaScript模块系统(require 和 import的区别)">
+<meta name="twitter:description" content="介绍JavaScript没有内置的模块支持，但社区已经创造了令人印象深刻的解决方案。 CommonJS模块这个标准的主要实现在Node.js中（Node.js模块有一些超越CommonJS的特性）。特点：  紧凑的语法 专为同步加载而设计   异步模块定义（AMD）这个标准最流行的实现是RequireJS。特点：  稍微复杂一点的语法，使AMD不用eval（）（或编译步骤）就可以工作。 专为异步加">
 
 
 
@@ -124,19 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/30/require和import的区别/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    关于 | 水叨叨
-  
-</title>
+  <title> JavaScript模块系统(require 和 import的区别) | 水叨叨 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,18 +284,192 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/require和import的区别/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水叨叨">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript模块系统(require 和 import的区别)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T11:28:06+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/30/require和import的区别/" class="leancloud_visitors" data-flag-title="JavaScript模块系统(require 和 import的区别)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-      <h2 id="哈哈"><a href="#哈哈" class="headerlink" title="哈哈"></a>哈哈</h2>
-    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>JavaScript没有内置的模块支持，但社区已经创造了令人印象深刻的解决方案。</p>
+<h4 id="CommonJS模块"><a href="#CommonJS模块" class="headerlink" title="CommonJS模块"></a>CommonJS模块</h4><p>这个标准的主要实现在Node.js中（Node.js模块有一些超越CommonJS的特性）。特点：</p>
+<ul>
+<li>紧凑的语法</li>
+<li>专为同步加载而设计 </li>
+</ul>
+<h4 id="异步模块定义（AMD）"><a href="#异步模块定义（AMD）" class="headerlink" title="异步模块定义（AMD）"></a>异步模块定义（AMD）</h4><p>这个标准最流行的实现是RequireJS。特点：</p>
+<ul>
+<li>稍微复杂一点的语法，使AMD不用eval（）（或编译步骤）就可以工作。</li>
+<li>专为异步加载和浏览器而设计 </li>
+</ul>
+<h4 id="ES6模块"><a href="#ES6模块" class="headerlink" title="ES6模块"></a>ES6模块</h4><p>ES6模块从CommonJS模块格式中提取设计思路。<br>ES6内置了对模块的支持。但是，还没有JavaScript引擎支持它们。不过，诸如<code>browserify</code>，<code>webpack</code>或<code>jspm</code>之类的工具可以让您使用ES6语法来创建模块，从而使您编写的代码具有未来性。<br>ECMAScript 6模块的目标是创建CommonJS和AMD的用户满意的格式<br>与CommonJS类似，它们具有简洁的语法，对单个导出的偏好和对循环依赖的支持。<br>与AMD类似，它们直接支持异步加载和可配置的模块加载。</p>
+<ul>
+<li>它们的语法比CommonJS更紧凑。</li>
+<li>他们的结构可以静态分析（静态检查，优化等）。</li>
+<li>他们对循环依赖的支持比CommonJS更好。</li>
+</ul>
+<h3 id="模块句法"><a href="#模块句法" class="headerlink" title="模块句法"></a>模块句法</h3><h4 id="CommonJS-在node中实现"><a href="#CommonJS-在node中实现" class="headerlink" title="CommonJS(在node中实现)"></a>CommonJS(在node中实现)</h4><p>require 和exports/module.exports </p>
+<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><p>import 和 export/export default (注意，不能使用var，let或const作为默认导出。)  </p>
+<!-- CommonJS 规范是为了解决 JavaScript 的作用域问题而定义的模块形式，可以使每个模块它自身的命名空间中执行。该规范的主要内容是，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。 -->
+<h3 id="加载方式"><a href="#加载方式" class="headerlink" title="加载方式"></a>加载方式</h3><p>来看一个经典的例子 </p>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// a.js</span></div><div class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    counter++;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">counter</span>: counter,</div><div class="line">    <span class="attr">incCounter</span>: incCounter,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// main.js</span></div><div class="line"><span class="keyword">var</span> mod = <span class="built_in">require</span>(<span class="string">'./a'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(mod.counter);  </div><div class="line">mod.incCounter();</div><div class="line"><span class="built_in">console</span>.log(mod.counter); </div><div class="line">mod.incCounter();</div><div class="line"><span class="built_in">console</span>.log(mod.counter);</div></pre></td></tr></table></figure>
+<p>执行命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ node main.js</div></pre></td></tr></table></figure></p>
+<p>// 结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">3</div><div class="line">3</div><div class="line">3</div></pre></td></tr></table></figure></p>
+<h4 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// a.js</span></div><div class="line"> <span class="keyword">export</span> <span class="keyword">let</span> counter = <span class="number">3</span>;</div><div class="line"> <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     counter++;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">// b.js</span></div><div class="line"> <span class="keyword">import</span> &#123; counter, incCounter &#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> <span class="keyword">export</span> &#123; counter &#125;</div><div class="line"> <span class="comment">// main.js</span></div><div class="line"> <span class="keyword">import</span> &#123; counter, incCounter &#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</div><div class="line"> <span class="keyword">import</span> &#123; counter <span class="keyword">as</span> bbb &#125; <span class="keyword">from</span> <span class="string">'./b.js'</span></div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'------main111'</span>)</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'------main2222'</span>)</div></pre></td></tr></table></figure>
+<p>执行命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ babel-node main.js</div></pre></td></tr></table></figure></p>
+<p> // 结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">------main111</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">------main2222</div></pre></td></tr></table></figure></p>
+<p>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。<br>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>Babel可以将es6模块转换为几种不同的格式，包括Common.js，AMD，System和UMD。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="external">CommonJs规范</a><br><a href="http://nodejs.cn/api/modules.html" target="_blank" rel="external">nodeJS modules</a><br><a href="http://es6.ruanyifeng.com/#docs/module-loader" target="_blank" rel="external">ES6入门</a><br><a href="http://exploringjs.com/es6/ch_modules.html#sec_modules-in-javascript" target="_blank" rel="external">ES6模块</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/31/node-debug/" rel="next" title="node-debug">
+                <i class="fa fa-chevron-left"></i> node-debug
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/05/karma（一）/" rel="prev" title="karma学习笔记(一)">
+                karma学习笔记(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -333,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460"
@@ -407,6 +584,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS模块"><span class="nav-number">1.1.</span> <span class="nav-text">CommonJS模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步模块定义（AMD）"><span class="nav-number">1.2.</span> <span class="nav-text">异步模块定义（AMD）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6模块"><span class="nav-number">1.3.</span> <span class="nav-text">ES6模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块句法"><span class="nav-number">2.</span> <span class="nav-text">模块句法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS-在node中实现"><span class="nav-number">2.1.</span> <span class="nav-text">CommonJS(在node中实现)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6"><span class="nav-number">2.2.</span> <span class="nav-text">ES6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载方式"><span class="nav-number">3.</span> <span class="nav-text">加载方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS"><span class="nav-number">3.1.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-1"><span class="nav-number">3.2.</span> <span class="nav-text">ES6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -514,6 +707,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

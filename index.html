@@ -291,6 +291,326 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/karma（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水叨叨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/05/karma（一）/" itemprop="url">
+                  karma学习笔记(一)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T17:43:04+08:00">
+                2017-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/05/karma（一）/" class="leancloud_visitors" data-flag-title="karma学习笔记(一)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Karma本质上是一个工具，它产生一个Web服务器，对每个连接的浏览器执行测试代码的源代码。对每个浏览器的每个测试的结果都进行检查，并通过命令行显示给开发人员，以便他们可以看到哪些浏览器和测试通过或失败。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>请先确保已安装Node</p>
+<ol>
+<li><p>建立文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ mkdir karma-demo &amp;&amp; cd karma-demo</div></pre></td></tr></table></figure>
+</li>
+<li><p>初始化一个node项目</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ npm init</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装karma</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ npm install karma --save-dev // 本地安装</div><div class="line"></div><div class="line">$ npm install -g karma-cli //全局安装</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>接下来初始化一个karma项目</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ./node_modules/karma/bin/karma init 或者 karma init（如果全局安装过） </div><div class="line"></div><div class="line">Which testing framework do you want to use ?</div><div class="line">Press tab to list possible options. Enter to move to the next question.</div><div class="line">&gt; jasmine // 需要安装依赖 $ npm install jasmine-core --save-dev</div><div class="line"></div><div class="line">Do you want to use Require.js ?</div><div class="line">This will add Require.js plugin.</div><div class="line">Press tab to list possible options. Enter to move to the next question.</div><div class="line">&gt; no</div><div class="line"></div><div class="line">Do you want to capture any browsers automatically ?</div><div class="line">Press tab to list possible options. Enter empty string to move to the next question.</div><div class="line">&gt; Chrome</div><div class="line"></div><div class="line">What is the location of your source and test files ?</div><div class="line">You can use glob patterns, eg. &quot;js/*.js&quot; or &quot;test/**/*Spec.js&quot;.</div><div class="line">Enter empty string to move to the next question.</div><div class="line">&gt; test/**/*[sS]pec.js</div><div class="line"></div><div class="line">Do you want Karma to watch all the files and run the tests on change ?</div><div class="line">Press tab to list possible options.</div><div class="line">&gt; yes</div><div class="line"></div><div class="line">Config file generated at &quot;/**/karma-demo/karma.conf.js&quot;.</div></pre></td></tr></table></figure>
+<p>我们会发现项目目录下多出了一个 <code>karma.conf.js</code><br>启动karma<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ karma start</div><div class="line"></div><div class="line"></div><div class="line">Chrome 62.0.3202 (Mac OS X 10.13.1): Executed 0 of 0 ERROR (0.013 secs / 0 secs)</div></pre></td></tr></table></figure></p>
+<p>由于 没有测试脚本，所以执行结果为 0/0<br>接下来我们添加一个最简单的<code>jasmine</code>测试脚本 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// test/index.spec.js</div><div class="line">describe(&quot;A suite&quot;, function() &#123; </div><div class="line">    it(&quot;contains spec with an expectation&quot;, function() &#123;</div><div class="line">        expect(true).toBe(true);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>控制台输出<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Chrome 62.0.3202 (Mac OS X 10.13.1): Executed 1 of 1 SUCCESS (0.002 secs / 0.004 secs)</div></pre></td></tr></table></figure></p>
+<p>接下来写一个方法来测试下<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// src/index.js  获取字符串后四位</div><div class="line">export function tailNum(value, count = 4) &#123;</div><div class="line">    let len = value.length</div><div class="line">    return value.substring(len - count)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// test/index.spec.js</div><div class="line">var  tailNum = require(&apos;../src/index&apos;)</div><div class="line">describe(&quot;获取字符串后四位&quot;, function() &#123; </div><div class="line">    it(&quot;123456789=&gt;6789&quot;, function() &#123;</div><div class="line">        expect(tailNum(123456789)).toBe(6789);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>没想到控制台报了错<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Chrome 62.0.3202 (Mac OS X 10.13.1) ERROR</div><div class="line">  Uncaught ReferenceError: require is not defined</div><div class="line">  at test/index.spec.js:</div></pre></td></tr></table></figure></p>
+<p>细细想来，也是，我们在浏览器里跑测试用例，使用require句法，浏览器自然是不支持的<br>有几种方式能帮我们解决这个问题</p>
+<ul>
+<li>karma-browserify + babelify</li>
+<li>webpack + babel-loader </li>
+<li>requireJS </li>
+</ul>
+<p>那么下一章再来写通过 webpack + babel-loader  来引入模块</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/require和import的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhou Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水叨叨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/30/require和import的区别/" itemprop="url">
+                  JavaScript模块系统(require 和 import的区别)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T11:28:06+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/30/require和import的区别/" class="leancloud_visitors" data-flag-title="JavaScript模块系统(require 和 import的区别)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>JavaScript没有内置的模块支持，但社区已经创造了令人印象深刻的解决方案。</p>
+<h4 id="CommonJS模块"><a href="#CommonJS模块" class="headerlink" title="CommonJS模块"></a>CommonJS模块</h4><p>这个标准的主要实现在Node.js中（Node.js模块有一些超越CommonJS的特性）。特点：</p>
+<ul>
+<li>紧凑的语法</li>
+<li>专为同步加载而设计 </li>
+</ul>
+<h4 id="异步模块定义（AMD）"><a href="#异步模块定义（AMD）" class="headerlink" title="异步模块定义（AMD）"></a>异步模块定义（AMD）</h4><p>这个标准最流行的实现是RequireJS。特点：</p>
+<ul>
+<li>稍微复杂一点的语法，使AMD不用eval（）（或编译步骤）就可以工作。</li>
+<li>专为异步加载和浏览器而设计 </li>
+</ul>
+<h4 id="ES6模块"><a href="#ES6模块" class="headerlink" title="ES6模块"></a>ES6模块</h4><p>ES6模块从CommonJS模块格式中提取设计思路。<br>ES6内置了对模块的支持。但是，还没有JavaScript引擎支持它们。不过，诸如<code>browserify</code>，<code>webpack</code>或<code>jspm</code>之类的工具可以让您使用ES6语法来创建模块，从而使您编写的代码具有未来性。<br>ECMAScript 6模块的目标是创建CommonJS和AMD的用户满意的格式<br>与CommonJS类似，它们具有简洁的语法，对单个导出的偏好和对循环依赖的支持。<br>与AMD类似，它们直接支持异步加载和可配置的模块加载。</p>
+<ul>
+<li>它们的语法比CommonJS更紧凑。</li>
+<li>他们的结构可以静态分析（静态检查，优化等）。</li>
+<li>他们对循环依赖的支持比CommonJS更好。</li>
+</ul>
+<h3 id="模块句法"><a href="#模块句法" class="headerlink" title="模块句法"></a>模块句法</h3><h4 id="CommonJS-在node中实现"><a href="#CommonJS-在node中实现" class="headerlink" title="CommonJS(在node中实现)"></a>CommonJS(在node中实现)</h4><p>require 和exports/module.exports </p>
+<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><p>import 和 export/export default (注意，不能使用var，let或const作为默认导出。)  </p>
+<!-- CommonJS 规范是为了解决 JavaScript 的作用域问题而定义的模块形式，可以使每个模块它自身的命名空间中执行。该规范的主要内容是，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。 -->
+<h3 id="加载方式"><a href="#加载方式" class="headerlink" title="加载方式"></a>加载方式</h3><p>来看一个经典的例子 </p>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// a.js</span></div><div class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    counter++;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">counter</span>: counter,</div><div class="line">    <span class="attr">incCounter</span>: incCounter,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// main.js</span></div><div class="line"><span class="keyword">var</span> mod = <span class="built_in">require</span>(<span class="string">'./a'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(mod.counter);  </div><div class="line">mod.incCounter();</div><div class="line"><span class="built_in">console</span>.log(mod.counter); </div><div class="line">mod.incCounter();</div><div class="line"><span class="built_in">console</span>.log(mod.counter);</div></pre></td></tr></table></figure>
+<p>执行命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ node main.js</div></pre></td></tr></table></figure></p>
+<p>// 结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">3</div><div class="line">3</div><div class="line">3</div></pre></td></tr></table></figure></p>
+<h4 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// a.js</span></div><div class="line"> <span class="keyword">export</span> <span class="keyword">let</span> counter = <span class="number">3</span>;</div><div class="line"> <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     counter++;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">// b.js</span></div><div class="line"> <span class="keyword">import</span> &#123; counter, incCounter &#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> <span class="keyword">export</span> &#123; counter &#125;</div><div class="line"> <span class="comment">// main.js</span></div><div class="line"> <span class="keyword">import</span> &#123; counter, incCounter &#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</div><div class="line"> <span class="keyword">import</span> &#123; counter <span class="keyword">as</span> bbb &#125; <span class="keyword">from</span> <span class="string">'./b.js'</span></div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'------main111'</span>)</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"> incCounter()</div><div class="line"> <span class="built_in">console</span>.log(counter)</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'------main2222'</span>)</div></pre></td></tr></table></figure>
+<p>执行命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ babel-node main.js</div></pre></td></tr></table></figure></p>
+<p> // 结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">------main111</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">------main2222</div></pre></td></tr></table></figure></p>
+<p>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。<br>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>Babel可以将es6模块转换为几种不同的格式，包括Common.js，AMD，System和UMD。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="external">CommonJs规范</a><br><a href="http://nodejs.cn/api/modules.html" target="_blank" rel="external">nodeJS modules</a><br><a href="http://es6.ruanyifeng.com/#docs/module-loader" target="_blank" rel="external">ES6入门</a><br><a href="http://exploringjs.com/es6/ch_modules.html#sec_modules-in-javascript" target="_blank" rel="external">ES6模块</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/31/node-debug/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -537,1051 +857,6 @@
             <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>通过 Package Control 搜索安装</p>
 <p>##</p>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/websocket/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhou Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水叨叨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/30/websocket/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T14:25:15+08:00">
-                2017-06-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/06/30/websocket/" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
-  font-family: octicons-anchor;
-  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    width: 980px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-body .markdown-body {
-    padding: 45px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    word-wrap: break-word;
-}
-
-pre {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
-.markdown-body {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  color: #333;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-.markdown-body a {
-  background-color: transparent;
-}
-
-.markdown-body a:active,
-.markdown-body a:hover {
-  outline: 0;
-}
-
-.markdown-body strong {
-  font-weight: bold;
-}
-
-.markdown-body h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-.markdown-body img {
-  border: 0;
-}
-
-.markdown-body hr {
-  box-sizing: content-box;
-  height: 0;
-}
-
-.markdown-body pre {
-  overflow: auto;
-}
-
-.markdown-body code,
-.markdown-body kbd,
-.markdown-body pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-.markdown-body input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-.markdown-body html input[disabled] {
-  cursor: default;
-}
-
-.markdown-body input {
-  line-height: normal;
-}
-
-.markdown-body input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.markdown-body table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.markdown-body td,
-.markdown-body th {
-  padding: 0;
-}
-
-.markdown-body input {
-  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.markdown-body a {
-  color: #4078c0;
-  text-decoration: none;
-}
-
-.markdown-body a:hover,
-.markdown-body a:active {
-  text-decoration: underline;
-}
-
-.markdown-body hr {
-  height: 0;
-  margin: 15px 0;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.markdown-body hr:before {
-  display: table;
-  content: "";
-}
-
-.markdown-body hr:after {
-  display: table;
-  clear: both;
-  content: "";
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 1.1;
-}
-
-.markdown-body h1 {
-  font-size: 30px;
-}
-
-.markdown-body h2 {
-  font-size: 21px;
-}
-
-.markdown-body h3 {
-  font-size: 16px;
-}
-
-.markdown-body h4 {
-  font-size: 14px;
-}
-
-.markdown-body h5 {
-  font-size: 12px;
-}
-
-.markdown-body h6 {
-  font-size: 11px;
-}
-
-.markdown-body blockquote {
-  margin: 0;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body ol ol,
-.markdown-body ul ol {
-  list-style-type: lower-roman;
-}
-
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
-.markdown-body ol ul ol,
-.markdown-body ol ol ol {
-  list-style-type: lower-alpha;
-}
-
-.markdown-body dd {
-  margin-left: 0;
-}
-
-.markdown-body code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
-}
-
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
-.markdown-body .select::-ms-expand {
-  opacity: 0;
-}
-
-.markdown-body .octicon {
-  font: normal normal normal 16px/1 octicons-anchor;
-  display: inline-block;
-  text-decoration: none;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.markdown-body .octicon-link:before {
-  content: '\f05c';
-}
-
-.markdown-body:before {
-  display: table;
-  content: "";
-}
-
-.markdown-body:after {
-  display: table;
-  clear: both;
-  content: "";
-}
-
-.markdown-body>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-.markdown-body a:not([href]) {
-  color: inherit;
-  text-decoration: none;
-}
-
-.markdown-body .anchor {
-  display: inline-block;
-  padding-right: 2px;
-  margin-left: -18px;
-}
-
-.markdown-body .anchor:focus {
-  outline: none;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 1em;
-  margin-bottom: 16px;
-  font-weight: bold;
-  line-height: 1.4;
-}
-
-.markdown-body h1 .octicon-link,
-.markdown-body h2 .octicon-link,
-.markdown-body h3 .octicon-link,
-.markdown-body h4 .octicon-link,
-.markdown-body h5 .octicon-link,
-.markdown-body h6 .octicon-link {
-  color: #000;
-  vertical-align: middle;
-  visibility: hidden;
-}
-
-.markdown-body h1:hover .anchor,
-.markdown-body h2:hover .anchor,
-.markdown-body h3:hover .anchor,
-.markdown-body h4:hover .anchor,
-.markdown-body h5:hover .anchor,
-.markdown-body h6:hover .anchor {
-  text-decoration: none;
-}
-
-.markdown-body h1:hover .anchor .octicon-link,
-.markdown-body h2:hover .anchor .octicon-link,
-.markdown-body h3:hover .anchor .octicon-link,
-.markdown-body h4:hover .anchor .octicon-link,
-.markdown-body h5:hover .anchor .octicon-link,
-.markdown-body h6:hover .anchor .octicon-link {
-  visibility: visible;
-}
-
-.markdown-body h1 {
-  padding-bottom: 0.3em;
-  font-size: 2.25em;
-  line-height: 1.2;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h1 .anchor {
-  line-height: 1;
-}
-
-.markdown-body h2 {
-  padding-bottom: 0.3em;
-  font-size: 1.75em;
-  line-height: 1.225;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h2 .anchor {
-  line-height: 1;
-}
-
-.markdown-body h3 {
-  font-size: 1.5em;
-  line-height: 1.43;
-}
-
-.markdown-body h3 .anchor {
-  line-height: 1.2;
-}
-
-.markdown-body h4 {
-  font-size: 1.25em;
-}
-
-.markdown-body h4 .anchor {
-  line-height: 1.2;
-}
-
-.markdown-body h5 {
-  font-size: 1em;
-}
-
-.markdown-body h5 .anchor {
-  line-height: 1.1;
-}
-
-.markdown-body h6 {
-  font-size: 1em;
-  color: #777;
-}
-
-.markdown-body h6 .anchor {
-  line-height: 1.1;
-}
-
-.markdown-body p,
-.markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body dl,
-.markdown-body table,
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.markdown-body hr {
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border: 0 none;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 2em;
-}
-
-.markdown-body ul ul,
-.markdown-body ul ol,
-.markdown-body ol ol,
-.markdown-body ol ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body li>p {
-  margin-top: 16px;
-}
-
-.markdown-body dl {
-  padding: 0;
-}
-
-.markdown-body dl dt {
-  padding: 0;
-  margin-top: 16px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body dl dd {
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.markdown-body blockquote {
-  padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
-}
-
-.markdown-body blockquote>:first-child {
-  margin-top: 0;
-}
-
-.markdown-body blockquote>:last-child {
-  margin-bottom: 0;
-}
-
-.markdown-body table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-}
-
-.markdown-body table th {
-  font-weight: bold;
-}
-
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
-}
-
-.markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.markdown-body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-.markdown-body img {
-  max-width: 100%;
-  box-sizing: content-box;
-  background-color: #fff;
-}
-
-.markdown-body code {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 3px;
-}
-
-.markdown-body code:before,
-.markdown-body code:after {
-  letter-spacing: -0.2em;
-  content: "\00a0";
-}
-
-.markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
-}
-
-.markdown-body .highlight {
-  margin-bottom: 16px;
-}
-
-.markdown-body .highlight pre,
-.markdown-body pre {
-  padding: 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f7f7f7;
-  border-radius: 3px;
-}
-
-.markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.markdown-body pre {
-  word-wrap: normal;
-}
-
-.markdown-body pre code {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
-}
-
-.markdown-body pre code:before,
-.markdown-body pre code:after {
-  content: normal;
-}
-
-.markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 11px;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
-}
-
-.markdown-body .pl-c {
-  color: #969896;
-}
-
-.markdown-body .pl-c1,
-.markdown-body .pl-s .pl-v {
-  color: #0086b3;
-}
-
-.markdown-body .pl-e,
-.markdown-body .pl-en {
-  color: #795da3;
-}
-
-.markdown-body .pl-s .pl-s1,
-.markdown-body .pl-smi {
-  color: #333;
-}
-
-.markdown-body .pl-ent {
-  color: #63a35c;
-}
-
-.markdown-body .pl-k {
-  color: #a71d5d;
-}
-
-.markdown-body .pl-pds,
-.markdown-body .pl-s,
-.markdown-body .pl-s .pl-pse .pl-s1,
-.markdown-body .pl-sr,
-.markdown-body .pl-sr .pl-cce,
-.markdown-body .pl-sr .pl-sra,
-.markdown-body .pl-sr .pl-sre {
-  color: #183691;
-}
-
-.markdown-body .pl-v {
-  color: #ed6a43;
-}
-
-.markdown-body .pl-id {
-  color: #b52a1d;
-}
-
-.markdown-body .pl-ii {
-  background-color: #b52a1d;
-  color: #f8f8f8;
-}
-
-.markdown-body .pl-sr .pl-cce {
-  color: #63a35c;
-  font-weight: bold;
-}
-
-.markdown-body .pl-ml {
-  color: #693a17;
-}
-
-.markdown-body .pl-mh,
-.markdown-body .pl-mh .pl-en,
-.markdown-body .pl-ms {
-  color: #1d3e81;
-  font-weight: bold;
-}
-
-.markdown-body .pl-mq {
-  color: #008080;
-}
-
-.markdown-body .pl-mi {
-  color: #333;
-  font-style: italic;
-}
-
-.markdown-body .pl-mb {
-  color: #333;
-  font-weight: bold;
-}
-
-.markdown-body .pl-md {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.markdown-body .pl-mi1 {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.markdown-body .pl-mdr {
-  color: #795da3;
-  font-weight: bold;
-}
-
-.markdown-body .pl-mo {
-  color: #1d3e81;
-}
-
-.markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
-}
-
-.markdown-body .plan-price-unit {
-  color: #767676;
-  font-weight: normal;
-}
-
-.markdown-body .task-list-item {
-  list-style-type: none;
-}
-
-.markdown-body .task-list-item+.task-list-item {
-  margin-top: 3px;
-}
-
-.markdown-body .task-list-item input {
-  margin: 0 0.35em 0.25em -1.6em;
-  vertical-align: middle;
-}
-
-.markdown-body .plan-choice {
-  padding: 15px;
-  padding-left: 40px;
-  display: block;
-  border: 1px solid #e0e0e0;
-  position: relative;
-  font-weight: normal;
-  background-color: #fafafa;
-}
-
-.markdown-body .plan-choice.open {
-  background-color: #fff;
-}
-
-.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
-  display: block;
-}
-
-.markdown-body .plan-choice-free {
-  border-radius: 3px 3px 0 0;
-}
-
-.markdown-body .plan-choice-paid {
-  border-radius: 0 0 3px 3px;
-  border-top: 0;
-  margin-bottom: 20px;
-}
-
-.markdown-body .plan-choice-radio {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-}
-
-.markdown-body .plan-choice-exp {
-  color: #999;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.markdown-body .plan-choice-seat-breakdown {
-  margin-top: 10px;
-  display: none;
-}
-
-.markdown-body :checked+.radio-label {
-  z-index: 1;
-  position: relative;
-  border-color: #4078c0;
-}
-</style><title>websocket</title></head><body><article class="markdown-body">
-<h1>
-<a id="user-content-node--websocket-实践" class="anchor" href="#node--websocket-%E5%AE%9E%E8%B7%B5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>node + websocket 实践</h1>
-
-
-
-<h2>
-<a id="user-content-websocket-介绍" class="anchor" href="#websocket-%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>websocket 介绍</h2>
-<p>WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信（双方同时进行双向通信）。
-WebSocket 使得客户端和服务器之间的数据交换变得更加简单，允许服务端主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输。</p>
-<h2>
-<a id="user-content-特点" class="anchor" href="#%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特点</h2>
-<p>它解决了web实时化的问题，相比传统http有如下好处：
-一个WEB客户端只建立一个TCP连接
-Websocket服务端可以推送(push)数据到web客户端.
-有更加轻量级的头，减少数据传送量
-在此WebSocket 协议中，为我们实现即时服务带来了两大好处：</p>
-<ol>
-<li>Header
-互相沟通的Header是很小的-大概只有 2 Bytes</li>
-<li>Server Push
-服务器的推送，服务器不再被动的接收到浏览器的request之后才返回数据，而是在有新数据时就主动推送给浏览器。</li>
-</ol>
-<h2>
-<a id="user-content-握手协议" class="anchor" href="#%E6%8F%A1%E6%89%8B%E5%8D%8F%E8%AE%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>握手协议</h2>
-<p>WebSocket 是独立的、创建在 TCP 上的协议。
-Websocket 通过 HTTP/1.1 协议的101状态码进行握手。
-为了创建Websocket连接，需要通过浏览器发出请求，之后服务器进行回应，这个过程通常称为“握手”（handshaking）。
-请看这个ws 请求</p>
-<p><strong>Request Headers</strong></p>
-<pre><code>Connection:Upgrade 
-Sec-WebSocket-Extensions:permessage-deflate; client_max_window_bits
-Sec-WebSocket-Key:5OZHiOb7h85qpsiqJpIErA==
-Sec-WebSocket-Version:13
-Upgrade:websocket
-</code></pre>
-<p><strong>Response Headers</strong></p>
-<pre><code>Connection:Upgrade
-Sec-WebSocket-Accept:v302QToviiP1gdh9TqV9tPYZXCU=
-Sec-WebSocket-Extensions:permessage-deflate
-Upgrade:websocket
-</code></pre>
-<p>字段说明：</p>
-<ul>
-<li>Connection必须设置Upgrade，表示客户端希望连接升级。</li>
-<li>Upgrade字段必须设置Websocket，表示希望升级到Websocket协议。</li>
-<li>Sec-WebSocket-Key是随机的字符串，服务器端会用这些数据来构造出一个SHA-1的信息摘要。把“Sec-WebSocket-Key”加上一个特殊字符串“258EAFA5-E914-47DA-95CA-C5AB0DC85B11”，然后计算SHA-1摘要，之后进行BASE-64编码，将结果做为“Sec-WebSocket-Accept”头的值，返回给客户端。如此操作，可以尽量避免普通HTTP请求被误认为Websocket协议。</li>
-<li>Sec-WebSocket-Version 表示支持的Websocket版本。RFC6455要求使用的版本是13，之前草案的版本均应当被弃用。</li>
-<li>Origin字段是可选的，通常用来表示在浏览器中发起此Websocket连接所在的页面，类似于Referer。但是，于Referer不同的是，Origin只包含了协议和主机名称。</li>
-<li>其他一些定义在HTTP协议中的字段，如Cookie等，也可以在Websocket中使用。</li>
-</ul>
-<h2>
-<a id="user-content-服务器" class="anchor" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>服务器</h2>
-<p>在服务器方面，网上都有不同对websocket支持的服务器,列举node的几个</p>
-<p>websocket - <a href="https://github.com/Worlize/WebSocket-Node" target="_blank" rel="external">https://github.com/Worlize/WebSocket-Node</a></p>
-<p>ws - <a href="https://github.com/websockets/ws" target="_blank" rel="external">https://github.com/websockets/ws</a></p>
-<p><strong>socket.io - <a href="http://socket.io" target="_blank" rel="external">http://socket.io</a></strong></p>
-<p><strong>注意</strong>
-websocket api在浏览器端的广泛实现似乎只是一个时间问题了, 值得注意的是服务器端没有标准的api, 各个实现都有自己的一套api, 并且jcp也没有类似的提案, 所以使用websocket开发服务器端有一定的风险.可能会被锁定在某个平台上或者将来被迫升级.</p>
-<h2>
-<a id="user-content-测试网站" class="anchor" href="#%E6%B5%8B%E8%AF%95%E7%BD%91%E7%AB%99" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>测试网站</h2>
-<p><a href="https://www.websocket.org/echo.html" target="_blank" rel="external">https://www.websocket.org/echo.html</a></p>
-<h2>
-<a id="user-content-socketio" class="anchor" href="#socketio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>socket.io</h2>
-<h3>
-<a id="user-content-安装" class="anchor" href="#%E5%AE%89%E8%A3%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装</h3>
-<pre><code>npm install socket.io --save 
-</code></pre>
-
-<p>服务端代码
-nodejs</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> app <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>http<span class="pl-pds">'</span></span>).<span class="pl-en">createServer</span>(handler)
-<span class="pl-k">var</span> io <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>socket.io<span class="pl-pds">'</span></span>)(app);
-<span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>);
-
-<span class="pl-smi">app</span>.<span class="pl-en">listen</span>(<span class="pl-c1">8088</span>);
-
-<span class="pl-k">function</span> <span class="pl-en">handler</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>) {
-    <span class="pl-smi">fs</span>.<span class="pl-en">readFile</span>(<span class="pl-c1">__dirname</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>/index.html<span class="pl-pds">'</span></span>,
-        <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">data</span>) {
-            <span class="pl-k">if</span> (err) {
-                <span class="pl-smi">res</span>.<span class="pl-en">writeHead</span>(<span class="pl-c1">500</span>);
-                <span class="pl-k">return</span> <span class="pl-smi">res</span>.<span class="pl-en">end</span>(<span class="pl-s"><span class="pl-pds">'</span>Error loading index.html<span class="pl-pds">'</span></span>);
-            }
-
-            <span class="pl-smi">res</span>.<span class="pl-en">writeHead</span>(<span class="pl-c1">200</span>);
-            <span class="pl-smi">res</span>.<span class="pl-en">end</span>(data);
-        });
-}
-<span class="pl-smi">io</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>connection<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">socket</span>) {
-    <span class="pl-c"><span class="pl-c">//</span>建立连接</span>
-    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">socket</span>.<span class="pl-c1">id</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>连接成功了。。<span class="pl-pds">'</span></span>)
-    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>newMsg<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
-        <span class="pl-c"><span class="pl-c">//</span>收到客户端推送消息</span>
-        <span class="pl-c"><span class="pl-c">//</span> socket.broadcast.emit('newMsg', data);</span>
-        <span class="pl-smi">io</span>.<span class="pl-smi">sockets</span>.<span class="pl-en">emit</span>(<span class="pl-s"><span class="pl-pds">'</span>newMsg<span class="pl-pds">'</span></span>, data)
-
-        <span class="pl-c"><span class="pl-c">//</span>推送消息给客户端</span>
-    });
-    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>disconnect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
-        <span class="pl-c"><span class="pl-c">//</span>断开连接</span>
-    });
-
-});</pre></div>
-<p>use express</p>
-<pre><code>npm install express --save 
-</code></pre>
-<div class="highlight highlight-source-js"><pre>
-<span class="pl-k">var</span> app <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>express<span class="pl-pds">'</span></span>)();
-<span class="pl-k">var</span> server <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>http<span class="pl-pds">'</span></span>).<span class="pl-en">Server</span>(app);
-<span class="pl-k">var</span> io <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>socket.io<span class="pl-pds">'</span></span>)(server);
-
-<span class="pl-smi">server</span>.<span class="pl-en">listen</span>(<span class="pl-c1">8088</span>);
-
-<span class="pl-smi">app</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">req</span>, <span class="pl-smi">res</span>) {
-  <span class="pl-smi">res</span>.<span class="pl-en">sendfile</span>(<span class="pl-c1">__dirname</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>/index.html<span class="pl-pds">'</span></span>);
-});
-<span class="pl-smi">io</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>connection<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">socket</span>) {
-    <span class="pl-c"><span class="pl-c">//</span>建立连接</span>
-    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">socket</span>.<span class="pl-c1">id</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>连接成功了。。<span class="pl-pds">'</span></span>)
-    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>newMsg<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
-        <span class="pl-c"><span class="pl-c">//</span>收到客户端推送消息</span>
-        <span class="pl-c"><span class="pl-c">//</span> socket.broadcast.emit('newMsg', data);</span>
-        <span class="pl-smi">io</span>.<span class="pl-smi">sockets</span>.<span class="pl-en">emit</span>(<span class="pl-s"><span class="pl-pds">'</span>newMsg<span class="pl-pds">'</span></span>, data)
-
-        <span class="pl-c"><span class="pl-c">//</span>推送消息给客户端</span>
-    });
-    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>disconnect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
-        <span class="pl-c"><span class="pl-c">//</span>断开连接</span>
-    });
-
-});
-</pre></div>
-<p>客户端事件代码</p>
-<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
-&lt;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>&gt;
-
-&lt;<span class="pl-ent">head</span>&gt;
-    &lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>&gt;
-    &lt;<span class="pl-ent">title</span>&gt;Document&lt;/<span class="pl-ent">title</span>&gt;
-&lt;/<span class="pl-ent">head</span>&gt;
-
-&lt;<span class="pl-ent">body</span>&gt;
-    &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>inputArea<span class="pl-pds">"</span></span>&gt;
-    &lt;<span class="pl-ent">button</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>sendBtn<span class="pl-pds">"</span></span>&gt;send &lt;/<span class="pl-ent">button</span>&gt;
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>textBox<span class="pl-pds">"</span></span>&gt;
-    &lt;/<span class="pl-ent">div</span>&gt;
-    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/socket.io/socket.io.js<span class="pl-pds">"</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
-    &lt;<span class="pl-ent">script</span>&gt;<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">var</span> $btn <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>sendBtn<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">    <span class="pl-k">var</span> $inputArea <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>inputArea<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">    <span class="pl-k">var</span> $textBox <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>textBox<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">    <span class="pl-smi">$btn</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {</span>
-<span class="pl-s1">        <span class="pl-smi">socket</span>.<span class="pl-en">emit</span>(<span class="pl-s"><span class="pl-pds">'</span>newMsg<span class="pl-pds">'</span></span>, <span class="pl-smi">$inputArea</span>.<span class="pl-c1">value</span>)</span>
-<span class="pl-s1">        <span class="pl-smi">$inputArea</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span></span>
-<span class="pl-s1">    })</span>
-<span class="pl-s1">    <span class="pl-k">var</span> socket <span class="pl-k">=</span> <span class="pl-en">io</span>();</span>
-<span class="pl-s1">    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>connect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-c1">event</span>) {</span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span>建立连接</span></span>
-<span class="pl-s1">    });</span>
-<span class="pl-s1">    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>disconnect<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-c1">event</span>) {</span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span>客户端断开连接</span></span>
-<span class="pl-s1">    });</span>
-<span class="pl-s1">    <span class="pl-smi">socket</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>newMsg<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">data</span>) {</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(data)</span>
-<span class="pl-s1">        <span class="pl-smi">$textBox</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">+=</span> data <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;br&gt;<span class="pl-pds">'</span></span></span>
-<span class="pl-s1">            <span class="pl-c"><span class="pl-c">//</span>客户端收到服务端消息处理</span></span>
-<span class="pl-s1">    });</span>
-<span class="pl-s1">    </span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;
-&lt;/<span class="pl-ent">body</span>&gt;
-
-&lt;/<span class="pl-ent">html</span>&gt;
-</pre></div>
-<p>打开浏览器访问 <code>http://localhost:8088/</code> 试试吧～
-<strong>注意</strong>
-在connection事件的回调函数中，socket表示的是当前连接到服务器的那个客户端。所以代码socket.emit('foo')则只有自己收得到这个事件，而socket.broadcast.emit('foo')则表示向除自己外的所有人发送该事件，另外，上面代码中，io表示服务器整个socket连接，所以代码io.sockets.emit('foo')表示所有人都可以收到该事件。</p>
-<p>保留以下事件关键字，不能以它作为你自己事件的名儿</p>
-<ul>
-<li>error</li>
-<li>connect</li>
-<li>disconnect</li>
-<li>disconnecting</li>
-<li>newListener</li>
-<li>removeListener</li>
-<li>ping</li>
-<li>pong</li>
-</ul>
-<h2>
-<a id="user-content-参考链接" class="anchor" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>参考链接</h2>
-<p><a href="https://zh.wikipedia.org/wiki/WebSocket" target="_blank" rel="external">维基百科</a>
-<a href="http://socket.io" target="_blank" rel="external"> socket.io </a></p>
-</article></body></html>
           
         
       
@@ -2594,174 +1869,13 @@ tags:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/25/hexo-github搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhou Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/11831203?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水叨叨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/25/hexo-github搭建博客/" itemprop="url">
-                  hexo + github搭建博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-25T15:00:14+08:00">
-                2017-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具使用/" itemprop="url" rel="index">
-                    <span itemprop="name">工具使用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/25/hexo-github搭建博客/" class="leancloud_visitors" data-flag-title="hexo + github搭建博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><p>Node.js<br>Git</p>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>接下来只需要使用 npm 即可完成 Hexo 的安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div></pre></td></tr></table></figure>
-<p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
-<h2 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h2><p>为了能直接打包文件到github，我们需要安装 <code>hexo-deployer-git</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>打开<br>要部署到    git上 ，还需要修改<strong>_config.yml</strong><br><code>type:git</code> ,repo 为 git 仓库地址,如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">- type: git</div><div class="line">  repo: git@github.com:[YOURUSERNAME]/[YOURUSERNAME].github.io.git</div></pre></td></tr></table></figure></p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>终于配置完了，跑如下命令，能直接生成博客内容到git中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy </div><div class="line">或 </div><div class="line">$ hexo deploy --generate</div><div class="line"></div><div class="line">// 也可以简写为</div><div class="line"></div><div class="line">$ hexo g -d</div><div class="line">或</div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
-<p>然后就可以通过此域名访问博客了<br><a href="https://[YOURUSERNAME].github.io" target="_blank" rel="external">https://[YOURUSERNAME].github.io</a></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="[https://hexo.io/zh-cn/docs/index.html]">hexo官方文档</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2804,7 +1918,7 @@ tags:
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
